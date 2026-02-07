@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bmwLogo from "@/assets/bmw-logo.png";
 
 const BMWFooter = () => {
@@ -7,10 +8,10 @@ const BMWFooter = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <Link to="/" className="flex items-center gap-3 mb-4">
               <img src={bmwLogo} alt="BMW" className="h-10 w-10" />
               <span className="text-foreground text-lg font-bold tracking-wider">BMW</span>
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Sheer Driving Pleasure. BMW has been setting standards in automotive excellence since 1916.
             </p>
@@ -20,11 +21,16 @@ const BMWFooter = () => {
           <div>
             <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider mb-4">Models</h4>
             <ul className="space-y-2">
-              {["3 Series", "5 Series", "7 Series", "X3", "X5", "i4", "M4"].map((item) => (
-                <li key={item}>
-                  <a href="#catalogue" className="text-muted-foreground text-sm hover:text-foreground transition-colors">
-                    BMW {item}
-                  </a>
+              {[
+                { label: "All Models", to: "/models" },
+                { label: "Electric Range", to: "/electric" },
+                { label: "M Performance", to: "/msport" },
+                { label: "Full Catalogue", to: "/catalogue" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="text-muted-foreground text-sm hover:text-foreground transition-colors">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -34,11 +40,20 @@ const BMWFooter = () => {
           <div>
             <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["Build Your BMW", "Test Drive", "Find a Dealer", "BMW Financial Services", "BMW Accessories"].map((item) => (
+              {[
+                { label: "BMW Experience", to: "/experience" },
+                { label: "Test Drive", to: "/experience" },
+                { label: "Find a Dealer", to: "/experience" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link to={item.to} className="text-muted-foreground text-sm hover:text-foreground transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              {["BMW Financial Services", "BMW Accessories"].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-muted-foreground text-sm hover:text-foreground transition-colors">
-                    {item}
-                  </a>
+                  <span className="text-muted-foreground text-sm cursor-default">{item}</span>
                 </li>
               ))}
             </ul>
@@ -66,9 +81,9 @@ const BMWFooter = () => {
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Use", "Cookie Settings", "Legal Notice"].map((link) => (
-              <a key={link} href="#" className="text-muted-foreground text-xs hover:text-foreground transition-colors">
+              <span key={link} className="text-muted-foreground text-xs hover:text-foreground transition-colors cursor-pointer">
                 {link}
-              </a>
+              </span>
             ))}
           </div>
         </div>

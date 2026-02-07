@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronRight, Zap, Shield, Gauge } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBmw from "@/assets/hero-bmw.jpg";
 
 const HeroSection = () => {
@@ -55,19 +56,19 @@ const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="flex flex-wrap gap-4 mb-16"
           >
-            <a
-              href="#catalogue"
+            <Link
+              to="/catalogue"
               className="inline-flex items-center gap-2 bg-primary hover:bg-bmw-blue-glow text-primary-foreground px-8 py-4 rounded-sm text-sm font-bold tracking-wide transition-all duration-300 shadow-glow group"
             >
               Explore All Models
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#models"
+            </Link>
+            <Link
+              to="/models"
               className="inline-flex items-center gap-2 border border-border hover:border-muted-foreground text-foreground px-8 py-4 rounded-sm text-sm font-bold tracking-wide transition-all duration-300"
             >
               View Highlights
-            </a>
+            </Link>
           </motion.div>
 
           {/* Stats */}
