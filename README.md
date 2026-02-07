@@ -1,6 +1,6 @@
 BMW India Website
 
-Check out the [BMW Car Website](https://bmwindia.lovable.app/) for more information.
+Check out the [BMW Website](https://bmwindia.lovable.app/) for more information.
 
 **Edit a file directly in GitHub**
 
