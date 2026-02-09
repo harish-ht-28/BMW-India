@@ -111,6 +111,7 @@
     background: hsl(220 15% 10% / 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(220 14% 18% / 0.5);
   }
 
   .line-clamp-1 {
@@ -119,6 +120,28 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
   }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection */
+::selection {
+  background: hsl(214 80% 52% / 0.3);
+  color: hsl(0 0% 100%);
 }
 
 /* Scrollbar styling */
@@ -127,14 +150,26 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(220 15% 7%);
+  background: hsl(220 15% 5%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(220 14% 25%);
+  background: hsl(220 14% 20%);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(214 80% 52%);
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
